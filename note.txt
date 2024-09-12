@@ -1,0 +1,159 @@
+Day 1
+1. Routing
+    - Static Route
+    - Dynamic Route
+    - Redirect
+    - Route Name
+    - URL Pattern
+    - Resource Route
+2. Controller
+    - php artisan make:controller ArticleController
+    - Return view
+    - Send data
+3. View
+    - Blade
+    - PHP statement
+    - Echo / Output
+4. Model
+    - php artisan make:model Article -m
+    - Migration
+    - php artisan migrate
+5. Factory
+    - php artisan make:factory ArticleFactory
+    - Seeding
+    - php artisan db:seed
+6. Authentication
+    - composer require laravel/ui
+    - php artisan ui bootstrap --auth
+    - http://localhost/login
+    - http://localhost/register
+
+Day 2
+7. CRUD
+    - CSRF
+    - Validation
+    - Pagination
+    - Session
+8. Relationship
+    - ORM => Object Relational Mapping
+    - php artisan make:model Category -m
+    - php artisan make:model Comment -m
+    - php artisan migrate:fresh
+    - php artisan make:factory CategoryFactory
+    - php artisan make:factory CommentFactory
+    - php artisan db:seed
+    - hasMany, belongsTo
+    - php artisan make:controller CommentController
+9. Authentication & Authorization
+    - @auth - display for only logedin user
+    - @guest - display for only not logedin user
+    - middleware
+
+Day 3
+10. Content Owner Permission
+    - modify table
+    - php artisan migrate:fresh --seed
+11. API
+    - php artisan install:api
+    - php artisan make:controller API/ArticleController
+    - apiResource
+    - php artisan make:controller API/ArticleController --api
+    - php artisan make:controller API/CategoryController --api
+    - php artisan make:controller CategoryController -r
+
+Day 4
+12. API Authentication
+    - Sanctum
+
+13. Image Upload
+    - php artisan make:migration add_image_to_articles_table
+    - php artisan storage:link
+    (tbc => image preview, muti upload)
+
+14. Muti Auth
+    - user/admin
+    - php artisan make:migration add_role_to_users_table
+    - php artisan make:controller Admin/DashboardController
+    - php artisan make:middleware Admin
+    (tbc => spartie - https://spatie.be/)
+
+Day 5
+15. Schedule Command
+    - php artisan make:command SendEmails
+    - php artisan emails:send
+    - php artisan make:mail EmailVerified
+    - php artisan schedule:list
+    - php artisan schedule:run
+    - * * * * * php /path_to_your_project/artisan schedule:run >> /dev/null 2&1
+    - * 1 * * 1 php /path_to_your_project/artisan emails:send >> /dev/null 2&1
+    (ref: https://crontab.guru)
+
+- Logging
+    - LOG_CHANNEL=daily
+- File Downlaod
+- Redirect
+
+16. Test Case
+    - Unit (partial)
+    - php artisan make:test UserTest --unit
+    - php artisan test
+    - php artisan test --testsuit=Unit
+    - php artisan test tests/Unit/UserTest.php
+    - php artisan test --filter test_example1 tests/Unit/UserTest.php
+    - Feature
+    - php artisan make:test UserTest
+    - Integration
+
+Day 6
+17. jQuery/Ajax
+
+Day 7
+18. Many to Many
+    - php artisan make:migration create_tags_table
+    - php artisan make:migration create_article_tag_table --create=article_tag
+    - php artisan make:factory TagFactory
+    - php artisan make:factory ArticleTagFactory
+    - php artisan make:model Tag
+    - php artisan make:model ArticleTag
+    - protected $table = 'article_tag';
+    - public $timestamps = false;
+
+youtube -> php framework mini project
+
+19. Components
+    - # static data passing
+    - php artisan make:component Heading
+    - # dynamic data passing
+    - php artisan make:component Article/ArticleItem
+    - # slot
+    - npm i bootstrap-icons
+    - # attributes merging
+    - # components without class
+    - # props
+    - # components only class (inline)
+    - php artisan make:component Form/Textarea --inline
+
+20. Admin Dashboard
+    -
+
+
+*** Code Review
+
+
+API
+- Passport
+
+Authentication
+- spartie
+
+Dashboard
+- Customize
+- Filament
+
+Design pattern
+- Repository
+
+Collection
+-
+
+Events/Listeners
