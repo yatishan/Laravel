@@ -32,6 +32,9 @@
                     <ul class="navbar-nav me-auto">
                         <a href="/articles" class="btn btn-link">Articles</a>
                     </ul>
+                    <ul class="navbar-nav me-auto">
+                        <a href="/categories" class="btn btn-link">Categories</a>
+                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

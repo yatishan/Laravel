@@ -1,3 +1,4 @@
+
 Day 1
 1. Routing
     - Static Route
@@ -133,11 +134,47 @@ youtube -> php framework mini project
     - # components only class (inline)
     - php artisan make:component Form/Textarea --inline
 
-20. Admin Dashboard
-    -
+Day 8
+20. Laravel Filament (Admin Dashboard)
+
+21. Project (Reverb)
+    - php artisan install:broadcasting
+    - composer require laravel/reverb
+    - php artisan reverb:install
+    - php artisan make:event NotificationEvent
+
+    // Command
+    - php artisan serve
+    - npm run dev (npm run build)
+    - php artisan reverb:start
+    - php artisan queue:listen
+
+
+ကိုယ်စက်ထဲ clone ပြီးရင် အောက်ကအဆင့်တွေလိုက်လုပ်ဖို့လိုပါတယ်
+.env.example ကို .env ဆိုတဲ့ file ပွား(duplicate)ယူလိုက်ပါ
+ပြီးတော့ database connection ပြောင်းပါ
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=blog
+DB_USERNAME=root
+DB_PASSWORD=
+
+အောက်က command တွေ run ပါ
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+php artisan serve
+
+node သွင်းရန်လိုအပ်ပါသည်
+https://nodejs.org/en/download/package-manager
+npm install
+npm run dev (npm run build)
+
 
 
 *** Code Review
+*** DB Transactions
 
 
 API
@@ -148,7 +185,6 @@ Authentication
 
 Dashboard
 - Customize
-- Filament
 
 Design pattern
 - Repository
@@ -157,3 +193,5 @@ Collection
 -
 
 Events/Listeners
+
+Try / Catch

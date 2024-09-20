@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ArticleController;
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,10 +27,16 @@ Route::get("/",function(){
 Route::post("/",function(){
     return "api post request";
 });
+Route::get('/user', function (Request $request) {
+    return $request->user();
+});
 // Route::post("/articles",[ArticleController::class,'index']);
 // Route::post("/articles",[ArticleController::class,'store']);
 // Route::get("/articles/{id}",[ArticleController::class,'show']);
 // Route::put("/articles/{id}",[ArticleController::class,'update']);
 // Route::delete("/articles/{id}",[ArticleController::class,'destroy']);
-Route::resource('articles', ArticleController::class);
-Route::resource('categories', CategoryController::class);
+Route::post('/register',[AuthController::class,'register']);
+Route::post('/login',[AuthController::class,'login']);
+Route::post('/logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
+Route::apiResource('articles', ArticleController::class);
+Route::apiResource('categories', CategoryController::class);

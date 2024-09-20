@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\ArticleTag;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Tag;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -33,5 +35,7 @@ class DatabaseSeeder extends Seeder
         Article::factory()->count(20)->create();
         Category::factory()->count(5)->create();
         Comment::factory()->count(50)->create();
+        Tag::factory()->count(10)->create();
+        ArticleTag::factory()->count(50)->create();
     }
 }

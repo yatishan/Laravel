@@ -11,23 +11,27 @@
             </ol>
         </div>
         @endif
-        <form action="{{url('/articles/store')}}" method="POST">
+        <form action="{{url('/articles/store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-2">
                 <label for="">Title</label>
-                <input type="text" name="title" class="form-control" value="{{old('title')}}">
+                <input type="text" name="title" class="form-control" value="{{old('title')}}" required>
             </div>
             <div class="mb-2">
                 <label for="">Body</label>
-                <textarea class="form-control" name="body" id="">{{ old('body')}}</textarea>
+                <textarea class="form-control" name="body" id="" required>{{ old('body')}}</textarea>
             </div>
             <div>
                 <label for="">Category</label>
-                <select name="category_id" class="form-control" id="">
+                <select name="category_id" class="form-control" id="" required>
                     @foreach($categories as $category)
                     <option value="{{$category['id']}}">{{$category['name']}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="mb-2">
+                <label for="">Image</label>
+                <input type="file" name="image" id="" class="form-control" accept="image/*">
             </div>
             <div>
                 <input type="submit" value="Submit" class="btn btn-success mt-2">

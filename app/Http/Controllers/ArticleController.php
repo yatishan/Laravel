@@ -28,6 +28,7 @@ class ArticleController extends Controller
         // $articles=Article::latest()->paginate(2);
         $article=Article::find($id);
         // dd($article->comments);
+        // dd($article->tags);
         return view('articles.show',compact('article'));
     }
     public function create(){
@@ -42,6 +43,7 @@ class ArticleController extends Controller
                     'title'=>'required',
                     'body'=>'required',
                     'category_id'=>'required',
+                    'image'=>'image|mimes:jpg,jpeg,png|max:1024',
                 ],)
             );
         if ($validator->fails()){
@@ -52,6 +54,14 @@ class ArticleController extends Controller
         $article->title=request()->title;
         $article->body=request()->body;
         $article->category_id=request()->category_id;
+
+        if(request()->hasFile('image')){
+            $file=request()->file('image');
+            $file_name=time().".".$file->getClientOriginalExtension();
+            $file->storeAs('articles',$file_name,'public');
+            $article->image=$file_name;
+        }
+
         $article->save();
 
         return redirect('articles')->with('info','Article create successfully');
@@ -72,6 +82,7 @@ class ArticleController extends Controller
                     'title'=>'required',
                     'body'=>'required',
                     'category_id'=>'required',
+                    'image'=>'image|mimes:jpg,jpeg,png|max:1024',
                 ],)
             );
         if ($validator->fails()){
@@ -82,6 +93,12 @@ class ArticleController extends Controller
         $article->title=request()->title;
         $article->body=request()->body;
         $article->category_id=request()->category_id;
+        if(request()->hasFile('image')){
+            $file=request()->file('image');
+            $file_name=time().".".$file->getClientOriginalExtension();
+            $file->storeAs('articles',$file_name,'public');
+            $article->image=$file_name;
+        }
         $article->save();
 
         return redirect('articles')->with('info','Article create successfully');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\PostService;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -17,3 +18,13 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('greet {name}',function($name){
+    $this->info('hello world'." ".$name);
+});
+
+Artisan::command('post:get {id}', function ($id) {
+    $post = new PostService();
+    $json = $post->getPost($id);
+    var_dump($json);
+});
